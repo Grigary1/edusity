@@ -9,7 +9,7 @@ import g3 from '../assets/program-icon-3.png'
 function Programs() {
 
   return (
-    <div className='flex justify-between overflow-hidden p-10 mt-10'>
+    <div className='flex justify-between overflow-hidden p-10 mt-1'>
       {/* First Image with overlay */}
       <div className='relative w-1/3 mx-36 rounded-3xl overflow-hidden'>
         <img className='h-96 object-contain' src={p1} alt="Program Image" />

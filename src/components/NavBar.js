@@ -1,10 +1,34 @@
-import React from 'react'
-import logo from '../assets/logo.png'
+import React, { useState, useEffect } from 'react';
+import logo from '../assets/logo.png';
 
 function NavBar() {
+  // State to track if the user has scrolled
+  const[isScrolled,setIsScrolled]=useState(false)
+  
+  useEffect(()=>{
+    const handleScroll=()=>{
+      const position=window.scrollY;
+      if(position>1000){
+        setIsScrolled(true)
+      }
+      else{
+        setIsScrolled(false)
+      }
+    }
+    window.addEventListener('scroll',handleScroll);
+
+    return()=>{
+      window.removeEventListener('scroll',handleScroll);
+    }
+  },[])
+
   return (
-    <nav className='absolute top-0 w-full bg-transparent text-white flex justify-around items-center h-fit z-10'>
-      <img className='w-fit h-16 p-2' src={logo} alt="Not found" />
+    <nav
+      className={`fixed top-0 w-full text-white flex justify-around items-center h-fit z-10 transition-all duration-300 ease-in-out ${
+        isScrolled ? 'backdrop-blur-lg text-gray-950' : 'bg-transparent'
+      }`}
+    >
+      <img className='w-fit h-16 p-2 text-gray-950' src={logo} alt="Not found" />
       <ul className='flex gap-x-10 justify-center items-center'>
         <li>Home</li>
         <li>Program</li>
@@ -16,7 +40,7 @@ function NavBar() {
         </button>
       </ul>
     </nav>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

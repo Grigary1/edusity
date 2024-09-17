@@ -2,6 +2,10 @@ import React from 'react'
 import NavBar from './components/NavBar'
 import Hero from './components/Hero'
 import Programs from './components/Programs'
+import Title from './components/Title'
+import About from './components/About'
+import Campus from './components/Campus'
+import Testimonials from './components/Testimonials'
 
 function App() {
   return (
@@ -11,10 +15,12 @@ function App() {
 
       {/* Hero component */}
       <Hero />
-      <div>
-        <Programs />
-      </div>
-
+      <div className='flex justify-center mt-6'>
+      <Title/></div>
+      <Programs/>
+      <About/>
+      <Campus/>
+      <Testimonials/>
     </div>
   )
 }
